@@ -1,0 +1,1077 @@
+                                                    GIT HANDS ON LAB 
+
+--------------------------------------------------------------------------------------------------------------------------------
+  
+1. Establish a local repository for your project with a descriptive name. Set up Git configurations by adding a username and 
+email address. Display and modify the Git configurations, and verify if the changes are reflected in the .git/config file 
+post-editing. Showcase the utilization of both Git Local and Global configurations.
+Ans:
+
+root@DESKTOP-Q1VPUEC:~/Cloud# git init
+Initialized empty Git repository in /root/Cloud/.git/
+root@DESKTOP-Q1VPUEC:~/Cloud# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan  3 15:59 ./
+drwx------ 11 root root 4096 Jan  3 15:58 ../
+drwxr-xr-x  7 root root 4096 Jan  3 15:59 .git/
+root@DESKTOP-Q1VPUEC:~/Cloud# touch ethix{1..5}.txt
+root@DESKTOP-Q1VPUEC:~/Cloud# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan  3 15:59 ./
+drwx------ 11 root root 4096 Jan  3 15:58 ../
+drwxr-xr-x  7 root root 4096 Jan  3 15:59 .git/
+-rw-r--r--  1 root root    0 Jan  3 15:59 ethix1.txt
+-rw-r--r--  1 root root    0 Jan  3 15:59 ethix2.txt
+-rw-r--r--  1 root root    0 Jan  3 15:59 ethix3.txt
+-rw-r--r--  1 root root    0 Jan  3 15:59 ethix4.txt
+-rw-r--r--  1 root root    0 Jan  3 15:59 ethix5.txt
+root@DESKTOP-Q1VPUEC:~/Cloud# git add .
+root@DESKTOP-Q1VPUEC:~/Cloud# git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   ethix1.txt
+        new file:   ethix2.txt
+        new file:   ethix3.txt
+        new file:   ethix4.txt
+        new file:   ethix5.txt
+
+root@DESKTOP-Q1VPUEC:~/Cloud# git commit -m "5 files added"
+[master (root-commit) 7bb04ee] 5 files added
+ 5 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 ethix1.txt
+ create mode 100644 ethix2.txt
+ create mode 100644 ethix3.txt
+ create mode 100644 ethix4.txt
+ create mode 100644 ethix5.txt
+root@DESKTOP-Q1VPUEC:~/Cloud# git status
+On branch master
+nothing to commit, working tree clean
+root@DESKTOP-Q1VPUEC:~/Cloud# git log
+commit 7bb04ee7526b133b11cc2141f1e65d0bf90ccc3b (HEAD -> master)
+Author: Kamran <kamrsh441@gmail.com>
+Date:   Wed Jan 3 16:02:25 2024 +0530
+
+    5 files added
+
+root@DESKTOP-Q1VPUEC:~/Cloud# git config --global user.name "Kamran"
+root@DESKTOP-Q1VPUEC:~/Cloud# git config --global user.email "kamrsh441@gmail.com"
+root@DESKTOP-Q1VPUEC:~/Cloud# git config -l
+user.name=Kamran
+user.email=kamrsh441@gmail.com
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+
+root@DESKTOP-Q1VPUEC:~/Cloud# git config --local user.email "kamrsh441@gmail.com"
+root@DESKTOP-Q1VPUEC:~/Cloud# git config --local user.name "Kamran"
+root@DESKTOP-Q1VPUEC:~/Cloud# git config -l
+user.name=Kamran
+user.email=kamrsh441@gmail.com
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+user.email=kamrsh441@gmail.com
+user.name=Kamran
+
+--------------------------------------------------------------------------------------------------------------------------------
+ 
+2. Set up a local repository for your project with a meaningful name. Explore the default branch in the local Git repository. 
+Sequentially create five files, committing each with informative messages. Share the Git log output through multiple methods 
+once the process is complete.
+Ans:
+
+root@DESKTOP-Q1VPUEC:~/Cloud1# git init
+Initialized empty Git repository in /root/Cloud1/.git/
+root@DESKTOP-Q1VPUEC:~/Cloud1# touch file {1..5}.txt
+root@DESKTOP-Q1VPUEC:~/Cloud1# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan  3 19:32 ./
+drwx------ 12 root root 4096 Jan  3 19:32 ../
+drwxr-xr-x  7 root root 4096 Jan  3 19:18 .git/
+-rw-r--r--  1 root root    0 Jan  3 19:32 1.txt
+-rw-r--r--  1 root root    0 Jan  3 19:32 2.txt
+-rw-r--r--  1 root root    0 Jan  3 19:32 3.txt
+-rw-r--r--  1 root root    0 Jan  3 19:32 4.txt
+-rw-r--r--  1 root root    0 Jan  3 19:32 5.txt
+-rw-r--r--  1 root root    0 Jan  3 19:32 file
+
+root@DESKTOP-Q1VPUEC:~/Cloud1# git add 1.txt
+root@DESKTOP-Q1VPUEC:~/Cloud1# git commit -m "1.txt file is added"
+[master (root-commit) 56e135b] 1.txt file is added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 1.txt
+
+root@DESKTOP-Q1VPUEC:~/Cloud1# git add 2.txt
+root@DESKTOP-Q1VPUEC:~/Cloud1# git commit -m "2.txt file is added"
+[master f48ef04] 2.txt file is added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 2.txt
+
+root@DESKTOP-Q1VPUEC:~/Cloud1# git add 3.txt
+root@DESKTOP-Q1VPUEC:~/Cloud1# git commit -m "3.txt file is added"
+[master 188577e] 3.txt file is added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 3.txt
+
+root@DESKTOP-Q1VPUEC:~/Cloud1# git add 4.txt
+root@DESKTOP-Q1VPUEC:~/Cloud1# git commit -m "4.txt file is added"
+[master a9bd5ec] 4.txt file is added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 4.txt
+
+root@DESKTOP-Q1VPUEC:~/Cloud1# git add 5.txt
+root@DESKTOP-Q1VPUEC:~/Cloud1# git commit -m "5.txt file is added"
+[master fc28fbe] 5.txt file is added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 5.txt
+
+root@DESKTOP-Q1VPUEC:~/Cloud1# git log
+commit fc28fbea655fcee046e2f97ff86084f4a9d3aa18 (HEAD -> master)
+Author: Kamran <kamrsh441@gmail.com>
+Date:   Wed Jan 3 19:35:04 2024 +0530
+
+    5.txt file is added
+
+commit a9bd5ece5f984ce0376cda7ec50e99c118b9ab67
+Author: Kamran <kamrsh441@gmail.com>
+Date:   Wed Jan 3 19:34:47 2024 +0530
+
+    4.txt file is added
+
+commit 188577eceab13ff4de251a2e8522ca63b184629b
+Author: Kamran <kamrsh441@gmail.com>
+Date:   Wed Jan 3 19:34:38 2024 +0530
+
+    3.txt file is added
+
+commit f48ef044b5281a38830e761d538531b12babb9a9
+Author: Kamran <kamrsh441@gmail.com>
+Date:   Wed Jan 3 19:34:26 2024 +0530
+
+    2.txt file is added
+
+commit 56e135b3efc9055089db36a42bf9eb194ee0bd18
+Author: Kamran <kamrsh441@gmail.com>
+Date:   Wed Jan 3 19:34:10 2024 +0530
+
+    1.txt file is added
+
+--------------------------------------------------------------------------------------------------------------------------------
+ 
+3. Open a GitHub account and initiate a remote Git repository. Examine the default branch in the remote repository. Create and 
+commit the following files one by one with meaningful commit messages: 
+i. README.md 
+ii. send_disk_alert.sh
+iii. create_users.sh
+iv. check_service.sh.
+Ans:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+ 
+4. Establish a local repository for your project with a descriptive name. Illustrate the implementation of a Git-Ignore file 
+by committing multiple files to the local repository.
+Ans:
+
+
+root@DESKTOP-Q1VPUEC:~# mkdir Cloud2
+root@DESKTOP-Q1VPUEC:~# cd Cloud2/
+root@DESKTOP-Q1VPUEC:~/Cloud2# ll
+total 8
+drwxr-xr-x  2 root root 4096 Jan  5 18:56 ./
+drwx------ 15 root root 4096 Jan  5 18:56 ../
+root@DESKTOP-Q1VPUEC:~/Cloud2# git init
+Initialized empty Git repository in /root/Cloud2/.git/
+root@DESKTOP-Q1VPUEC:~/Cloud2# touch hp{1..2}.txt
+root@DESKTOP-Q1VPUEC:~/Cloud2# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan  5 18:58 ./
+drwx------ 15 root root 4096 Jan  5 18:57 ../
+drwxr-xr-x  7 root root 4096 Jan  5 18:57 .git/
+-rw-r--r--  1 root root    0 Jan  5 18:58 hp1.txt
+-rw-r--r--  1 root root    0 Jan  5 18:58 hp2.txt
+root@DESKTOP-Q1VPUEC:~/Cloud2# touch .gitignore
+root@DESKTOP-Q1VPUEC:~/Cloud2# git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        hp1.txt
+        hp2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@DESKTOP-Q1VPUEC:~/Cloud2# git add .
+root@DESKTOP-Q1VPUEC:~/Cloud2# git commit -m "files are saved"
+[master (root-commit) dcf7fa6] files are saved
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 .gitignore
+ create mode 100644 hp1.txt
+ create mode 100644 hp2.txt
+root@DESKTOP-Q1VPUEC:~/Cloud2# git status
+On branch master
+nothing to commit, working tree clean
+root@DESKTOP-Q1VPUEC:~/Cloud2# vim .gitignore
+
+hp1.txt
+
+:wq
+
+root@DESKTOP-Q1VPUEC:~/Cloud2# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@DESKTOP-Q1VPUEC:~/Cloud2# git add .
+root@DESKTOP-Q1VPUEC:~/Cloud2# git commit -m ".gitignore are saved"
+[master eb20558] .gitignore are saved
+ 1 file changed, 1 insertion(+)
+root@DESKTOP-Q1VPUEC:~/Cloud2# git status
+On branch master
+nothing to commit, working tree clean
+
+--------------------------------------------------------------------------------------------------------------------------------
+ 
+5. Create a local repository with a meaningful project name. Demonstrate the utilization of GIT working area, staging area, 
+and commit area. Experiment with committing, deleting, and restoring files from the repository. Additionally, add files to 
+the staging area and restore them from the staging area.
+Ans:
+
+root@DESKTOP-Q1VPUEC:~# mkdir Cloud3
+root@DESKTOP-Q1VPUEC:~# cd Cloud3/
+root@DESKTOP-Q1VPUEC:Cloud3# git init
+Initialized empty Git repository in /root/Cloud3/.git/
+root@DESKTOP-Q1VPUEC:Cloud3# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan  8 13:13 ./
+drwx------ 16 root root 4096 Jan  8 13:13 ../
+drwxr-xr-x  7 root root 4096 Jan  8 13:13 .git/
+root@DESKTOP-Q1VPUEC:Cloud3# touch file{1..4}.txt
+root@DESKTOP-Q1VPUEC:Cloud3# git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file1.txt
+        file2.txt
+        file3.txt
+        file4.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@DESKTOP-Q1VPUEC:Cloud3# git add file1.txt
+root@DESKTOP-Q1VPUEC:Cloud3# git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file2.txt
+        file3.txt
+        file4.txt
+
+root@DESKTOP-Q1VPUEC:Cloud3# rm -rf file1.txt
+root@DESKTOP-Q1VPUEC:Cloud3# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan  8 13:14 ./
+drwx------ 16 root root 4096 Jan  8 13:13 ../
+drwxr-xr-x  7 root root 4096 Jan  8 13:14 .git/
+-rw-r--r--  1 root root    0 Jan  8 13:13 file2.txt
+-rw-r--r--  1 root root    0 Jan  8 13:13 file3.txt
+-rw-r--r--  1 root root    0 Jan  8 13:13 file4.txt
+root@DESKTOP-Q1VPUEC:Cloud3# git restore file1.txt
+root@DESKTOP-Q1VPUEC:Cloud3# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan  8 13:14 ./
+drwx------ 16 root root 4096 Jan  8 13:13 ../
+drwxr-xr-x  7 root root 4096 Jan  8 13:14 .git/
+-rw-r--r--  1 root root    0 Jan  8 13:14 file1.txt
+-rw-r--r--  1 root root    0 Jan  8 13:13 file2.txt
+-rw-r--r--  1 root root    0 Jan  8 13:13 file3.txt
+-rw-r--r--  1 root root    0 Jan  8 13:13 file4.txt
+root@DESKTOP-Q1VPUEC:Cloud3# git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file2.txt
+        file3.txt
+        file4.txt
+
+--------------------------------------------------------------------------------------------------------------------------------
+================================================================================================================================
+
+1. Establish a remote "repository" with a meaningful project name. Generate DEV/QA/UAT/PROD branches within the remote
+repository. Clone the repository locally. Create a local branch named after you, add files, commit them locally, and then push 
+that branch to the remote repository. Initiate a Pull Request (PR) and subsequently merge your branch into the Dev branch.
+Ans:
+
+REMOTE:
+Created new repository on github and created branches a follows "DEV/QA/UAT/PROD" 
+
+LOCAL:
+root@DESKTOP-Q1VPUEC:~# git clone git@github.com:kamranshaikh111/Cloud_ethix.git
+root@DESKTOP-Q1VPUEC:~# cd Cloud_ethix/
+root@DESKTOP-Q1VPUEC:Cloud_ethix# ll
+total 16
+drwxr-xr-x  3 root root 4096 Jan  9 12:43 ./
+drwx------ 17 root root 4096 Jan  9 12:43 ../
+drwxr-xr-x  8 root root 4096 Jan  9 12:43 .git/
+-rw-r--r--  1 root root   37 Jan  9 12:43 README.md
+root@DESKTOP-Q1VPUEC:Cloud_ethix# git branch -a
+* master
+  remotes/origin/DEV
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/PROD
+  remotes/origin/QA
+  remotes/origin/UAT
+  remotes/origin/master
+root@DESKTOP-Q1VPUEC:Cloud_ethix# git checkout -b kamran
+Switched to a new branch 'kamran'
+root@DESKTOP-Q1VPUEC:Cloud_ethix# ll
+total 16
+drwxr-xr-x  3 root root 4096 Jan  9 12:43 ./
+drwx------ 17 root root 4096 Jan  9 12:43 ../
+drwxr-xr-x  8 root root 4096 Jan  9 12:44 .git/
+-rw-r--r--  1 root root   37 Jan  9 12:43 README.md
+root@DESKTOP-Q1VPUEC:Cloud_ethix# git branch -l
+* kamran
+  master
+root@DESKTOP-Q1VPUEC:Cloud_ethix# git branch -a
+* kamran
+  master
+  remotes/origin/DEV
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/PROD
+  remotes/origin/QA
+  remotes/origin/UAT
+  remotes/origin/master
+root@DESKTOP-Q1VPUEC:Cloud_ethix# touch clone.txt
+root@DESKTOP-Q1VPUEC:Cloud_ethix# git add .
+root@DESKTOP-Q1VPUEC:Cloud_ethix# git commit -m "clone file added."
+[kamran 1131126] clone file added.
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 clone.txt
+root@DESKTOP-Q1VPUEC:Cloud_ethix# ll
+total 16
+drwxr-xr-x  3 root root 4096 Jan  9 12:44 ./
+drwx------ 17 root root 4096 Jan  9 12:44 ../
+drwxr-xr-x  8 root root 4096 Jan  9 12:45 .git/
+-rw-r--r--  1 root root   37 Jan  9 12:43 README.md
+-rw-r--r--  1 root root    0 Jan  9 12:44 clone.txt
+root@DESKTOP-Q1VPUEC:Cloud_ethix# git push origin kamran
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 274 bytes | 54.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'kamran' on GitHub by visiting:
+remote:      https://github.com/kamranshaikh111/Cloud_ethix/pull/new/kamran
+remote:
+To github.com:kamranshaikh111/Cloud_ethix.git
+ * [new branch]      kamran -> kamran
+ 
+ REMOTE:
+ Now i had went in kamran branch and created a pull request to dev for merging and after that i went in DEV branch and 
+ accepted pull request and it kamran branch got mergerd into DEV branch.
+
+--------------------------------------------------------------------------------------------------------------------------------
+ 
+2. Set up a remote "repository" with a project name that holds significance. In the master branch of the remote repository, 
+create a file named demo.txt. After creating the file, clone the repository locally. Within the local repository, create three 
+branches: feature/login, feature/mainline, and release. Add a login.txt file to the feature/login branch and push the branch 
+to the remote repository. Create a PR, approve it, and then merge the feature/login branch into the remote master branch.
+Ans:
+
+REMOTE:
+First i added a new repository named as Web_page and i created a file named demo.txt in master branch.
+
+LOCAL:
+root@DESKTOP-Q1VPUEC:~# git clone git@github.com:kamranshaikh111/Web_page.git
+Cloning into 'Web_page'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (6/6), done.
+root@DESKTOP-Q1VPUEC:~# l
+Cloud/  Cloud1/  Cloud2/  Cloud3/  Cloud_ethix/  Web_page/  cdd  dead.letter  snap/
+root@DESKTOP-Q1VPUEC:~# cd Web_page/
+root@DESKTOP-Q1VPUEC:Web_page# ll
+total 20
+drwxr-xr-x  3 root root 4096 Jan  9 13:08 ./
+drwx------ 18 root root 4096 Jan  9 13:08 ../
+drwxr-xr-x  8 root root 4096 Jan  9 13:08 .git/
+-rw-r--r--  1 root root   32 Jan  9 13:08 README.md
+-rw-r--r--  1 root root   17 Jan  9 13:08 demo.txt
+root@DESKTOP-Q1VPUEC:Web_page# git branch -a
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+root@DESKTOP-Q1VPUEC:Web_page# git branch feature/mainline
+root@DESKTOP-Q1VPUEC:Web_page# git branch release
+root@DESKTOP-Q1VPUEC:Web_page# git checkout -b feature/login
+Switched to a new branch 'feature/login'
+root@DESKTOP-Q1VPUEC:Web_page# git branch -a
+* feature/login
+  feature/mainline
+  master
+  release
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+root@DESKTOP-Q1VPUEC:Web_page# vim login.txt
+root@DESKTOP-Q1VPUEC:Web_page# git add .
+root@DESKTOP-Q1VPUEC:Web_page# git commit -m "login.txt file is added"
+[feature/login 2477be6] login.txt file is added
+ 1 file changed, 1 insertion(+)
+ create mode 100644 login.txt
+root@DESKTOP-Q1VPUEC:Web_page# git status
+On branch feature/login
+nothing to commit, working tree clean
+
+root@DESKTOP-Q1VPUEC:Web_page# git push origin feature/login
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 327 bytes | 327.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'feature/login' on GitHub by visiting:
+remote:      https://github.com/kamranshaikh111/Web_page/pull/new/feature/login
+remote:
+To github.com:kamranshaikh111/Web_page.git
+ * [new branch]      feature/login -> feature/login
+ 
+ REMOTE:
+Now i went in feature/login branch and created a pull request to master branch for merging and after that i went in master 
+branch and accepted pull request and feature/login branch got mergerd into master branch.
+
+--------------------------------------------------------------------------------------------------------------------------------
+ 
+3. Populate the local repository's feature/mainline branch with files and push that branch to the remote repository. Add 
+additional files to the feature/mainline remote branch through the UI. Fetch the latest changes on the local feature/mainline 
+using the Fetch and Pull commands.
+Ans:
+
+root@DESKTOP-Q1VPUEC:~# cd Web_page/
+root@DESKTOP-Q1VPUEC:Web_page# git branch -a
+  checkout
+  feature/login
+* feature/mainline
+  master
+  release
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/feature/login
+  remotes/origin/master
+root@DESKTOP-Q1VPUEC:Web_page# ll
+total 20
+drwxr-xr-x  3 root root 4096 Jan 11 16:06 ./
+drwx------ 20 root root 4096 Jan 12 12:00 ../
+drwxr-xr-x  8 root root 4096 Jan 11 16:06 .git/
+-rw-r--r--  1 root root   32 Jan  9 13:08 README.md
+-rw-r--r--  1 root root   17 Jan  9 13:08 demo.txt
+root@DESKTOP-Q1VPUEC:Web_page# touch file{1..5}.txt
+root@DESKTOP-Q1VPUEC:Web_page# git add .
+root@DESKTOP-Q1VPUEC:Web_page# git commit -m "5 files are comitted"
+[feature/mainline e046c2c] 5 files are comitted
+ 5 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.txt
+ create mode 100644 file2.txt
+ create mode 100644 file3.txt
+ create mode 100644 file4.txt
+ create mode 100644 file5.txt
+root@DESKTOP-Q1VPUEC:Web_page# git push origin feature/mainline
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 322 bytes | 322.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'feature/mainline' on GitHub by visiting:
+remote:      https://github.com/kamranshaikh111/Web_page/pull/new/feature/mainline
+remote:
+To github.com:kamranshaikh111/Web_page.git
+ * [new branch]      feature/mainline -> feature/mainline
+root@DESKTOP-Q1VPUEC:Web_page# ll
+total 20
+drwxr-xr-x  3 root root 4096 Jan 12 12:01 ./
+drwx------ 20 root root 4096 Jan 12 12:00 ../
+drwxr-xr-x  8 root root 4096 Jan 12 12:02 .git/
+-rw-r--r--  1 root root   32 Jan  9 13:08 README.md
+-rw-r--r--  1 root root   17 Jan  9 13:08 demo.txt
+-rw-r--r--  1 root root    0 Jan 12 12:01 file1.txt
+-rw-r--r--  1 root root    0 Jan 12 12:01 file2.txt
+-rw-r--r--  1 root root    0 Jan 12 12:01 file3.txt
+-rw-r--r--  1 root root    0 Jan 12 12:01 file4.txt
+-rw-r--r--  1 root root    0 Jan 12 12:01 file5.txt
+root@DESKTOP-Q1VPUEC:Web_page# git pull origin feature/mainline
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 668 bytes | 95.00 KiB/s, done.
+From github.com:kamranshaikh111/Web_page
+ * branch            feature/mainline -> FETCH_HEAD
+   e046c2c..003411a  feature/mainline -> origin/feature/mainline
+Updating e046c2c..003411a
+Fast-forward
+ file6.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file6.txt
+root@DESKTOP-Q1VPUEC:Web_page# ll
+total 24
+drwxr-xr-x  3 root root 4096 Jan 12 12:17 ./
+drwx------ 20 root root 4096 Jan 12 12:00 ../
+drwxr-xr-x  8 root root 4096 Jan 12 12:17 .git/
+-rw-r--r--  1 root root   32 Jan  9 13:08 README.md
+-rw-r--r--  1 root root   17 Jan  9 13:08 demo.txt
+-rw-r--r--  1 root root    0 Jan 12 12:01 file1.txt
+-rw-r--r--  1 root root    0 Jan 12 12:01 file2.txt
+-rw-r--r--  1 root root    0 Jan 12 12:01 file3.txt
+-rw-r--r--  1 root root    0 Jan 12 12:01 file4.txt
+-rw-r--r--  1 root root    0 Jan 12 12:01 file5.txt
+-rw-r--r--  1 root root   19 Jan 12 12:17 file6.txt
+
+--------------------------------------------------------------------------------------------------------------------------------
+ 
+4. Establish a remote "repository" for a dashboard application with a meaningful project name. Create the following branches: 
+master, release, hotfix, feature/login, feature/submit, and feature/dashboard. Clone the repository locally. Create a local 
+branch named after you, add files, commit them locally, and then push that branch to the remote repository. Create a PR and 
+merge your branch into the respective branch.
+Ans:
+
+root@DESKTOP-Q1VPUEC:~# git clone git@github.com:kamranshaikh111/Application.git
+Cloning into 'Application'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+
+root@DESKTOP-Q1VPUEC:~# cd Application/
+root@DESKTOP-Q1VPUEC:Application# ll
+total 16
+drwxr-xr-x  3 root root 4096 Jan 12 12:34 ./
+drwx------ 21 root root 4096 Jan 12 12:34 ../
+drwxr-xr-x  8 root root 4096 Jan 12 12:34 .git/
+-rw-r--r--  1 root root   26 Jan 12 12:34 README.md
+root@DESKTOP-Q1VPUEC:Application# git branch -a
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/feature/dashboard
+  remotes/origin/feature/login
+  remotes/origin/feature/submit
+  remotes/origin/hotfix
+  remotes/origin/master
+  remotes/origin/release
+root@DESKTOP-Q1VPUEC:Application# git branch kamran
+root@DESKTOP-Q1VPUEC:Application# git branch -a
+  kamran
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/feature/dashboard
+  remotes/origin/feature/login
+  remotes/origin/feature/submit
+  remotes/origin/hotfix
+  remotes/origin/master
+  remotes/origin/release
+  root@DESKTOP-Q1VPUEC:Application# git checkout kamran
+Switched to branch 'kamran'
+root@DESKTOP-Q1VPUEC:Application# git branch -a
+* kamran
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/feature/dashboard
+  remotes/origin/feature/login
+  remotes/origin/feature/submit
+  remotes/origin/hotfix
+  remotes/origin/master
+  remotes/origin/release
+root@DESKTOP-Q1VPUEC:Application# touch local{1..4}.txt
+root@DESKTOP-Q1VPUEC:Application# git add .
+root@DESKTOP-Q1VPUEC:Application# git commit -m "4 files are added"
+[kamran f628eb0] 4 files are added
+ 4 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 local1.txt
+ create mode 100644 local2.txt
+ create mode 100644 local3.txt
+ create mode 100644 local4.txt
+root@DESKTOP-Q1VPUEC:Application# git push origin kamran
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 287 bytes | 95.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'kamran' on GitHub by visiting:
+remote:      https://github.com/kamranshaikh111/Application/pull/new/kamran
+remote:
+To github.com:kamranshaikh111/Application.git
+ * [new branch]      kamran -> kamran
+ 
+
+--------------------------------------------------------------------------------------------------------------------------------
+================================================================================================================================
+ 
+1. Fork below public repository to your account. Then clone the repository locally. Create 2 branches cloud_dev01. Then add 
+cloud_dev02 to that repository locally and hello.txt , moto.txt and world.txt to one branch and add another 3 files to another 
+branch. Then push cloud_dev02 branch to the Forked repository on the remote.  https://github.com/ripienaar/free-for-dev
+Ans:
+
+root@DESKTOP-Q1VPUEC:~# git clone git@github.com:kamranshaikh111/free-for-dev.git
+Cloning into 'free-for-dev'...
+remote: Enumerating objects: 13039, done.
+remote: Counting objects: 100% (97/97), done.
+remote: Compressing objects: 100% (61/61), done.
+remote: Total 13039 (delta 52), reused 72 (delta 36), pack-reused 12942
+Receiving objects: 100% (13039/13039), 7.09 MiB | 2.45 MiB/s, done.
+Resolving deltas: 100% (6771/6771), done.
+root@DESKTOP-Q1VPUEC:~# ls
+Cloud  Cloud1  Cloud2  Cloud3  Cloud_ethix  cdd  dead.letter  free-for-dev  index.html  inline_policy.json  snap  ubuntu-nginx
+
+root@DESKTOP-Q1VPUEC:~# cd free-for-dev/
+root@DESKTOP-Q1VPUEC:free-for-dev# git branch -a
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+root@DESKTOP-Q1VPUEC:free-for-dev# git branch cloud_dev01
+root@DESKTOP-Q1VPUEC:free-for-dev# git branch cloud_dev02
+root@DESKTOP-Q1VPUEC:free-for-dev# git branch -a
+  cloud_dev01
+  cloud_dev02
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+root@DESKTOP-Q1VPUEC:free-for-dev# git checkout cloud_dev01
+Switched to branch 'cloud_dev01'
+root@DESKTOP-Q1VPUEC:free-for-dev# touch hello.txt
+root@DESKTOP-Q1VPUEC:free-for-dev# touch moto.txt
+root@DESKTOP-Q1VPUEC:free-for-dev# touch world.txt
+
+root@DESKTOP-Q1VPUEC:free-for-dev# git checkout cloud_dev02
+Switched to branch 'cloud_dev02'
+root@DESKTOP-Q1VPUEC:free-for-dev# touch hello.txt
+root@DESKTOP-Q1VPUEC:free-for-dev# touch moto.txt
+root@DESKTOP-Q1VPUEC:free-for-dev# touch world.txt
+root@DESKTOP-Q1VPUEC:free-for-dev# git add .
+root@DESKTOP-Q1VPUEC:free-for-dev# git commit -m "3 files are added"
+[cloud_dev02 e55c78d] 3 files are added
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hello.txt
+ create mode 100644 moto.txt
+ create mode 100644 world.txt
+root@DESKTOP-Q1VPUEC:free-for-dev# git push origin -u cloud_dev02
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 287 bytes | 287.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:kamranshaikh111/free-for-dev.git
+   978d70b..e55c78d  cloud_dev02 -> cloud_dev02
+Branch 'cloud_dev02' set up to track remote branch 'cloud_dev02' from 'origin'.
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+ 
+2. Create a remote repository merge_confilct_demo. Add some files in the remote master branch. Clone the repository locally. 
+Create 2 branches locally named demo/merge and demo/conflicts. Add a merge.txt file in both branches with some data like 
+"Hello CloudEthiX…." And "Fello CloudEthiX…." respectively and commit. Then merge demo/conflicts branch to demo/merge branch
+and solve the merge conflicts.
+Ans:
+
+root@DESKTOP-Q1VPUEC:~# git clone git@github.com:kamranshaikh111/merge_confilct_demo.git
+Cloning into 'merge_confilct_demo'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (6/6), done.
+root@DESKTOP-Q1VPUEC:~# cd merge_confilct_demo/
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# ll
+total 20
+drwxr-xr-x  3 root root 4096 Jan 12 14:28 ./
+drwx------ 21 root root 4096 Jan 12 14:28 ../
+drwxr-xr-x  8 root root 4096 Jan 12 14:28 .git/
+-rw-r--r--  1 root root   42 Jan 12 14:28 README.md
+-rw-r--r--  1 root root   21 Jan 12 14:28 merge.txt
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# cat merge.txt
+this is remote file.
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# git branch demo/merge
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# git branch demo/conflicts
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# git checkout demo/merge
+Switched to branch 'demo/merge'
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# vim Merge.txt
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# git add .
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# git commit -m "Merge.txt file saved."
+[demo/merge 60b7d47] Merge.txt file saved.
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Merge.txt
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# git checkout demo/conflicts
+Switched to branch 'demo/conflicts'
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# vim Merge.txt
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# git add .
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# git commit -m "Merge.txt file saved con."
+[demo/conflicts b4abfe9] Merge.txt file saved con.
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Merge.txt
+
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# git merge demo/merge
+CONFLICT (add/add): Merge conflict in Merge.txt
+Auto-merging Merge.txt
+Automatic merge failed; fix conflicts and then commit the result.
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# ll
+total 24
+drwxr-xr-x  3 root root 4096 Jan 12 14:42 ./
+drwx------ 21 root root 4096 Jan 12 14:41 ../
+drwxr-xr-x  8 root root 4096 Jan 12 14:42 .git/
+-rw-r--r--  1 root root   82 Jan 12 14:42 Merge.txt
+-rw-r--r--  1 root root   42 Jan 12 14:28 README.md
+-rw-r--r--  1 root root   21 Jan 12 14:32 merge.txt
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# cat Merge.txt
+<<<<<<< HEAD
+Fello CloudEthiX….
+=======
+Hello CloudEthiX….
+>>>>>>> demo/merge
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# vim Merge.txt
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# cat Merge.txt
+Hello CloudEthiX….
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# git add .
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# git commit -m "Merge.txt is finally solved"
+[demo/conflicts edf80a0] Merge.txt is finally solved
+root@DESKTOP-Q1VPUEC:merge_confilct_demo# git merge demo/merge
+Already up to date.
+
+--------------------------------------------------------------------------------------------------------------------------------
+ 
+3. Create PR to merge the cloud_dev02 branch to Forked repository. Approve the PR and merge cloud_dev02 branch to master branch
+remotely.
+Ans:
+
+Done remotely
+
+--------------------------------------------------------------------------------------------------------------------------------
+ 
+4. Fetch latest changes from master branch of remote forked repository to local master branch. Then merge forked remote master 
+branch with local master branch. Check If all the latest files are there. Then checkout to local cloud_dev03 branch locally. 
+Then Pull latest changes from the remote master branch.
+Ans:
+
+root@DESKTOP-Q1VPUEC:~# cd free-for-dev/
+root@DESKTOP-Q1VPUEC:free-for-dev# ll
+total 288
+drwxr-xr-x  4 root root   4096 Jan 12 13:11 ./
+drwx------ 21 root root   4096 Jan 12 14:45 ../
+drwxr-xr-x  8 root root   4096 Jan 12 13:15 .git/
+drwxr-xr-x  2 root root   4096 Jan 12 13:03 .github/
+-rw-r--r--  1 root root     12 Jan 12 13:03 CNAME
+-rw-r--r--  1 root root 265631 Jan 12 13:03 README.md
+-rw-r--r--  1 root root      0 Jan 12 13:12 hello.txt
+-rw-r--r--  1 root root   3556 Jan 12 13:03 index.html
+-rw-r--r--  1 root root    768 Jan 12 13:03 logo.webp
+-rw-r--r--  1 root root      0 Jan 12 13:12 moto.txt
+-rw-r--r--  1 root root      0 Jan 12 13:12 world.txt
+root@DESKTOP-Q1VPUEC:free-for-dev# git branch -a
+  cloud_dev01
+* cloud_dev02
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/cloud_dev02
+  remotes/origin/master
+
+root@DESKTOP-Q1VPUEC:free-for-dev# git fetch origin master
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 633 bytes | 105.00 KiB/s, done.
+From github.com:kamranshaikh111/free-for-dev
+ * branch            master     -> FETCH_HEAD
+   978d70b..be7443f  master     -> origin/master
+
+root@DESKTOP-Q1VPUEC:free-for-dev# git checkout master
+Switched to branch 'master'
+Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+root@DESKTOP-Q1VPUEC:free-for-dev# git branch -a
+  cloud_dev01
+  cloud_dev02
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/cloud_dev02
+  remotes/origin/master
+root@DESKTOP-Q1VPUEC:free-for-dev# git merge origin master
+Updating 978d70b..be7443f
+Fast-forward
+ hello.txt | 0
+ moto.txt  | 0
+ world.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hello.txt
+ create mode 100644 moto.txt
+ create mode 100644 world.txt
+root@DESKTOP-Q1VPUEC:free-for-dev# ll
+total 288
+drwxr-xr-x  4 root root   4096 Jan 12 15:38 ./
+drwx------ 21 root root   4096 Jan 12 15:38 ../
+drwxr-xr-x  8 root root   4096 Jan 12 15:38 .git/
+drwxr-xr-x  2 root root   4096 Jan 12 13:03 .github/
+-rw-r--r--  1 root root     12 Jan 12 13:03 CNAME
+-rw-r--r--  1 root root 265631 Jan 12 13:03 README.md
+-rw-r--r--  1 root root      0 Jan 12 15:38 hello.txt
+-rw-r--r--  1 root root   3556 Jan 12 13:03 index.html
+-rw-r--r--  1 root root    768 Jan 12 13:03 logo.webp
+-rw-r--r--  1 root root      0 Jan 12 15:38 moto.txt
+-rw-r--r--  1 root root      0 Jan 12 15:38 world.txt
+root@DESKTOP-Q1VPUEC:free-for-dev# git checkout -b cloud_dev03
+Switched to a new branch 'cloud_dev03'
+root@DESKTOP-Q1VPUEC:free-for-dev# git pull origin master
+From github.com:kamranshaikh111/free-for-dev
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+root@DESKTOP-Q1VPUEC:free-for-dev# ll
+total 288
+drwxr-xr-x  4 root root   4096 Jan 12 15:38 ./
+drwx------ 21 root root   4096 Jan 12 15:38 ../
+drwxr-xr-x  8 root root   4096 Jan 12 15:44 .git/
+drwxr-xr-x  2 root root   4096 Jan 12 13:03 .github/
+-rw-r--r--  1 root root     12 Jan 12 13:03 CNAME
+-rw-r--r--  1 root root 265631 Jan 12 13:03 README.md
+-rw-r--r--  1 root root      0 Jan 12 15:38 hello.txt
+-rw-r--r--  1 root root   3556 Jan 12 13:03 index.html
+-rw-r--r--  1 root root    768 Jan 12 13:03 logo.webp
+-rw-r--r--  1 root root      0 Jan 12 15:38 moto.txt
+-rw-r--r--  1 root root      0 Jan 12 15:38 world.txt
+
+--------------------------------------------------------------------------------------------------------------------------------
+ 
+5. Checkout to the cloud_dev01 branch locally and rebase the remote master branch of the forked repository.
+Ans:
+
+root@DESKTOP-Q1VPUEC:free-for-dev# git checkout cloud_dev01
+Switched to branch 'cloud_dev01'
+root@DESKTOP-Q1VPUEC:free-for-dev# git branch -a
+* cloud_dev01
+  cloud_dev02
+  cloud_dev03
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/cloud_dev02
+  remotes/origin/master
+root@DESKTOP-Q1VPUEC:free-for-dev# git rebase master
+Successfully rebased and updated refs/heads/cloud_dev01.
+
+--------------------------------------------------------------------------------------------------------------------------------
+ 
+6. Create one repository locally. Commit any 3 files to the local repository. And the revert back the commits.
+Ans:
+
+root@DESKTOP-Q1VPUEC:~# mkdir local
+root@DESKTOP-Q1VPUEC:~# cd local/
+root@DESKTOP-Q1VPUEC:local# git init
+Initialized empty Git repository in /root/local/.git/
+root@DESKTOP-Q1VPUEC:local# ls
+root@DESKTOP-Q1VPUEC:local# ls -a
+.  ..  .git
+root@DESKTOP-Q1VPUEC:local# touch files{1..3}.txt
+root@DESKTOP-Q1VPUEC:local# ls
+files1.txt  files2.txt  files3.txt
+root@DESKTOP-Q1VPUEC:local# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan 12 16:36 ./
+drwx------ 22 root root 4096 Jan 12 16:35 ../
+drwxr-xr-x  7 root root 4096 Jan 12 16:35 .git/
+-rw-r--r--  1 root root    0 Jan 12 16:36 files1.txt
+-rw-r--r--  1 root root    0 Jan 12 16:36 files2.txt
+-rw-r--r--  1 root root    0 Jan 12 16:36 files3.txt
+root@DESKTOP-Q1VPUEC:local# vim files1.txt
+root@DESKTOP-Q1VPUEC:local# git add "files1.txt: new file added"
+fatal: pathspec 'files1.txt: new file added' did not match any files
+root@DESKTOP-Q1VPUEC:local#
+root@DESKTOP-Q1VPUEC:local# git add files1.txt
+root@DESKTOP-Q1VPUEC:local# git commit -m "files1.txt is added."
+[master (root-commit) a2afbb2] files1.txt is added.
+ 1 file changed, 1 insertion(+)
+ create mode 100644 files1.txt
+root@DESKTOP-Q1VPUEC:local# git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        files2.txt
+        files3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@DESKTOP-Q1VPUEC:local# git reflog
+a2afbb2 (HEAD -> master) HEAD@{0}: commit (initial): files1.txt is added.
+root@DESKTOP-Q1VPUEC:local# git add files2.txt
+root@DESKTOP-Q1VPUEC:local# git commit -m "files2.txt is added."
+[master 5bc0fd7] files2.txt is added.
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 files2.txt
+root@DESKTOP-Q1VPUEC:local# git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        files3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@DESKTOP-Q1VPUEC:local# git reflog
+root@DESKTOP-Q1VPUEC:local# ll
+total 16
+drwxr-xr-x  3 root root 4096 Jan 12 16:37 ./
+drwx------ 22 root root 4096 Jan 12 16:45 ../
+drwxr-xr-x  8 root root 4096 Jan 12 16:41 .git/
+-rw-r--r--  1 root root   16 Jan 12 16:37 files1.txt
+-rw-r--r--  1 root root    0 Jan 12 16:36 files2.txt
+-rw-r--r--  1 root root    0 Jan 12 16:36 files3.txt
+root@DESKTOP-Q1VPUEC:local# git status
+On branch master
+nothing to commit, working tree clean
+root@DESKTOP-Q1VPUEC:local# git reflog
+e496e8f (HEAD -> master) HEAD@{0}: reset: moving to HEAD
+e496e8f (HEAD -> master) HEAD@{1}: commit: files3.txt is aed.
+5bc0fd7 HEAD@{2}: commit: files2.txt is added.
+a2afbb2 HEAD@{3}: commit (initial): files1.txt is added.
+root@DESKTOP-Q1VPUEC:local#
+root@DESKTOP-Q1VPUEC:local# git revert --no-edit 5bc0fd7
+Removing files2.txt
+[master 8b14cc8] Revert "files2.txt is added."
+ Date: Fri Jan 12 19:28:36 2024 +0530
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 files2.txt
+root@DESKTOP-Q1VPUEC:local# git reflog
+8b14cc8 (HEAD -> master) HEAD@{0}: revert: Revert "files2.txt is added."
+e496e8f HEAD@{1}: reset: moving to HEAD
+e496e8f HEAD@{2}: commit: files3.txt is aed.
+5bc0fd7 HEAD@{3}: commit: files2.txt is added.
+a2afbb2 HEAD@{4}: commit (initial): files1.txt is added.
+
+--------------------------------------------------------------------------------------------------------------------------------
+ 
+7. Create one local repository. commit some files to the local master branch. Checkout to master_02 branch. Create 2 more files.
+Add those to the staging area. Create stash area and those files. Then list and delete the stash.
+Ans:
+
+root@DESKTOP-Q1VPUEC:local# mkdir stash
+root@DESKTOP-Q1VPUEC:local# cd stash/
+root@DESKTOP-Q1VPUEC:stash# git init
+Initialized empty Git repository in /root/local/stash/.git/
+root@DESKTOP-Q1VPUEC:stash# echo "File 1" > file1.txt
+root@DESKTOP-Q1VPUEC:stash# echo "File 2" > file2.txt
+root@DESKTOP-Q1VPUEC:stash# git add .
+root@DESKTOP-Q1VPUEC:stash# git commit -m "commit on master branch"
+[master (root-commit) 574287d] commit on master branch
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1.txt
+ create mode 100644 file2.txt
+ 
+root@DESKTOP-Q1VPUEC:stash# git checkout -b master_02
+Switched to a new branch 'master_02'
+root@DESKTOP-Q1VPUEC:stash# echo "File 3" > file3.txt
+root@DESKTOP-Q1VPUEC:stash# echo "File 4" > file4.txt
+root@DESKTOP-Q1VPUEC:stash# git add .
+root@DESKTOP-Q1VPUEC:stash# git status
+On branch master_02
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   file3.txt
+        new file:   file4.txt
+
+root@DESKTOP-Q1VPUEC:stash# git stash save "Stashing changes on master_02 branch"
+Saved working directory and index state On master_02: Stashing changes on master_02 branch
+
+root@DESKTOP-Q1VPUEC:stash# git stash list
+stash@{0}: On master_02: Stashing changes on master_02 branch
+
+root@DESKTOP-Q1VPUEC:stash# git stash drop stash@{0}
+Dropped stash@{0} (e3175e4a5f81360a977ac577fb23c180935aa05e)
+
+--------------------------------------------------------------------------------------------------------------------------------
+ 
+8. Create a local repository, initialise it and create 3 branches: develop, hotfix and release. Checkout to hotfix branch and 
+commit cloudethix.txt and once committed amend the commit message.
+Ans:
+
+root@DESKTOP-Q1VPUEC:amend# git init
+Initialized empty Git repository in /root/amend/.git/
+root@DESKTOP-Q1VPUEC:amend# ls
+root@DESKTOP-Q1VPUEC:amend# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan 12 19:49 ./
+drwx------ 15 root root 4096 Jan 12 19:49 ../
+drwxr-xr-x  7 root root 4096 Jan 12 19:49 .git/
+root@DESKTOP-Q1VPUEC:amend# git branch -a
+root@DESKTOP-Q1VPUEC:amend# touch new
+root@DESKTOP-Q1VPUEC:amend# git add .
+root@DESKTOP-Q1VPUEC:amend# gi
+giftopnm            gio                 git                 git-receive-pack    git-upload-archive  gitk
+ginstall-info       gio-querymodules    git-cvsserver       git-shell           git-upload-pack
+root@DESKTOP-Q1VPUEC:amend# gi
+giftopnm            gio                 git                 git-receive-pack    git-upload-archive  gitk
+ginstall-info       gio-querymodules    git-cvsserver       git-shell           git-upload-pack
+root@DESKTOP-Q1VPUEC:amend# git commit -m "new file saved"
+[master (root-commit) 34dd2c6] new file saved
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 new
+root@DESKTOP-Q1VPUEC:amend#
+root@DESKTOP-Q1VPUEC:amend# git branch -a
+* master
+root@DESKTOP-Q1VPUEC:amend# git branch develop
+root@DESKTOP-Q1VPUEC:amend# git branch hotfix
+root@DESKTOP-Q1VPUEC:amend# git branch release
+root@DESKTOP-Q1VPUEC:amend# git branch -a
+  develop
+  hotfix
+* master
+  release
+root@DESKTOP-Q1VPUEC:amend# git checkout hotfix
+Switched to branch 'hotfix'
+root@DESKTOP-Q1VPUEC:amend# touch cloudethix.txt
+root@DESKTOP-Q1VPUEC:amend# git add .
+root@DESKTOP-Q1VPUEC:amend# git commit -m "this is normal commit"
+[hotfix 6ffb4ed] this is normal commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 cloudethix.txt
+root@DESKTOP-Q1VPUEC:amend# git log --oneline
+6ffb4ed (HEAD -> hotfix) this is normal commit
+34dd2c6 (release, master, develop) new file saved
+root@DESKTOP-Q1VPUEC:amend# git commit --amend -m "this is amended commit"
+[hotfix 9d45c0a] this is amended commit
+ Date: Fri Jan 12 19:52:16 2024 +0530
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 cloudethix.txt
+root@DESKTOP-Q1VPUEC:amend# git log --oneline
+9d45c0a (HEAD -> hotfix) this is amended commit
+34dd2c6 (release, master, develop) new file saved
+
+--------------------------------------------------------------------------------------------------------------------------------
